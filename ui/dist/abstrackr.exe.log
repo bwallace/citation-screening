@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "abstrackr.py", line 159, in <module>
+  File "abstrackr.py", line 53, in __init__
+  File "abstrackr.py", line 141, in setup_db
+  File "sqlalchemy\engine\__init__.pyc", line 173, in create_engine
+  File "sqlalchemy\engine\strategies.pyc", line 48, in create
+  File "sqlalchemy\engine\url.pyc", line 100, in get_dialect
+ImportError: No module named pkg_resources
+Traceback (most recent call last):
+  File "abstrackr.py", line 159, in <module>
+  File "abstrackr.py", line 53, in __init__
+  File "abstrackr.py", line 141, in setup_db
+  File "sqlalchemy\engine\__init__.pyc", line 173, in create_engine
+  File "sqlalchemy\engine\strategies.pyc", line 48, in create
+  File "sqlalchemy\engine\url.pyc", line 100, in get_dialect
+ImportError: No module named pkg_resources
+Traceback (most recent call last):
+  File "abstrackr.py", line 159, in <module>
+  File "abstrackr.py", line 53, in __init__
+  File "abstrackr.py", line 141, in setup_db
+  File "sqlalchemy\engine\__init__.pyc", line 173, in create_engine
+  File "sqlalchemy\engine\strategies.pyc", line 48, in create
+  File "sqlalchemy\engine\url.pyc", line 100, in get_dialect
+ImportError: No module named pkg_resources
+Traceback (most recent call last):
+  File "abstrackr.py", line 159, in <module>
+  File "abstrackr.py", line 53, in __init__
+  File "abstrackr.py", line 141, in setup_db
+  File "sqlalchemy\engine\__init__.pyc", line 173, in create_engine
+  File "sqlalchemy\engine\strategies.pyc", line 48, in create
+  File "sqlalchemy\engine\url.pyc", line 100, in get_dialect
+ImportError: No module named pkg_resources
+Traceback (most recent call last):
+  File "abstrackr.py", line 16, in <module>
+ImportError: No module named setuptools
+Traceback (most recent call last):
+  File "abstrackr.py", line 16, in <module>
+  File "setuptools\__init__.pyc", line 2, in <module>
+  File "setuptools\extension.pyc", line 2, in <module>
+  File "setuptools\dist.pyc", line 6, in <module>
+  File "setuptools\command\sdist.pyc", line 3, in <module>
+ImportError: No module named pkg_resources
+Traceback (most recent call last):
+  File "abstrackr.py", line 16, in <module>
+  File "setuptools\__init__.pyc", line 2, in <module>
+  File "setuptools\extension.pyc", line 2, in <module>
+  File "setuptools\dist.pyc", line 6, in <module>
+  File "setuptools\command\sdist.pyc", line 3, in <module>
+ImportError: No module named pkg_resources
+Traceback (most recent call last):
+  File "abstrackr.py", line 285, in <module>
+  File "abstrackr.py", line 83, in __init__
+  File "abstrackr.py", line 192, in display_current_citation
+AttributeError: 'NoneType' object has no attribute 'label'
+Traceback (most recent call last):
+  File "abstrackr.py", line 285, in <module>
+  File "abstrackr.py", line 83, in __init__
+  File "abstrackr.py", line 192, in display_current_citation
+AttributeError: 'NoneType' object has no attribute 'label'
+Traceback (most recent call last):
+  File "abstrackr.py", line 285, in <module>
+  File "abstrackr.py", line 78, in __init__
+  File "abstrackr.py", line 268, in setup_db
+  File "sqlalchemy\schema.pyc", line 104, in __call__
+  File "sqlalchemy\schema.pyc", line 229, in __init__
+  File "sqlalchemy\engine\base.pyc", line 1267, in reflecttable
+  File "sqlalchemy\databases\sqlite.pyc", line 297, in reflecttable
+sqlalchemy.exceptions.NoSuchTableError: citations

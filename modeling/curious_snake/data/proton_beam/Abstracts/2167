@@ -1,0 +1,1 @@
+Using a minimal set of measured data, the collimator scatter correction factor of an asymmetrical collimated rectangular field (X1,X2;Y1,Y2) can be calculated from the product of one-dimensional factors, in combination with a correction term: Sc(X1,X2;Y1,Y2) = S(cx1)(X1)S(cx2)(X2)S(cy1)(Y1)S(cy2)(Y2) + c delta(X;Y). Two forms of the function delta(X;Y) were investigated

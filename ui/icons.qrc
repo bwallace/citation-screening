@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="buttons" >
+    <file>two_thumbs_down.png</file>
+    <file>accepted_48.png</file>
+    <file>cancel_48.png</file>
+    <file>two_thumbs_up.png</file>
+    <file>neg_annotation.png</file>
+    <file>abstrackr.png</file>
+    <file>pos_annotation.png</file>
+    <file>arrow_right_green_48.png</file>
+    <file>arrow_left_green_48.png</file>
+    <file>thumbs_up_48.png</file>
+    <file>thumbs_down_48.png</file>
+  </qresource>
+</RCC>

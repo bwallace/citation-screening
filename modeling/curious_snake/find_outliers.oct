@@ -1,0 +1,23 @@
+vectors = dlmread("C:\\dev\\AbstractScreeningRedux\\modeling\\curious_snake\\negatives.txt", ",", 0, 1);
+# now get the labels, or indices
+r = rows(vectors);
+indices = dlmread("C:\\dev\\AbstractScreeningRedux\\modeling\\curious_snake\\negatives.txt", ",", [0,0,r,1]);
+printf("commence outlier detection...")
+out= pcout(vectors, 1);
+printf("success. writing data out...\n")
+weights = out.w;
+outlier_ids = [];
+sorted_weights = sort(weights);
+sorted_weights = unique(sorted_weights);
+for i = 1:length(sorted_weights),
+    # find the (original) list index
+    # of the sorted weights
+    ls_indices = find(weights == sorted_weights(i));
+    # the index is in the indices vector
+    for j = 1:length(ls_indices),
+        index = ls_indices(j);
+        outlier_ids(i+j-1) = indices(index);
+    endfor;
+endfor;
+
+save indices.txt outlier_ids;

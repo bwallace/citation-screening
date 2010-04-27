@@ -1,0 +1,1 @@
+A code for the implementation of treatment plannings in hadrontherapy with an active scan beam is presented. The package can determine the fluence and energy of the beams for several thousand voxels in a few minutes. The performances of the program have been tested with a full simulation
