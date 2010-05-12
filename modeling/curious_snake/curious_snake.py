@@ -535,10 +535,10 @@ def rank_uncertainties(data_paths):
     for x_id in cofl_learner.unlabeled_datasets[0].instances.keys():
         #ids_to_scores[x_id] = cofl_learner.feature_vote(x_id, include_direction=False)
         #ids_to_scores[x_id] = cofl_learner.doc_length(x_id)
-        lor = cofl_learner.feature_vote(x_id, include_direction=False)
+        lor = cofl_learner.feature_vote(x_id, include_direction=False, scaled=True)
         if lor is not None:
             ids_to_scores[x_id] = lor
-    outf = open("ids_to_feature_lors", 'w')
+    outf = open("ids_to_scaled_feature_lors", 'w')
     pickle.dump(ids_to_scores, outf)
     outf.close()
     pdb.set_trace()

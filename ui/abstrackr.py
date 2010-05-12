@@ -63,7 +63,7 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
             self.current_lbl_d = eval(open(current_lbl_d_path, 'r').readline())
 
         # @TODO temporarily hardcoding this; obviously needs to change
-        self.reviewer_name = "James"
+        self.reviewer_name = "Chris"
 
         if db_path is not None:
             self.db_path = db_path

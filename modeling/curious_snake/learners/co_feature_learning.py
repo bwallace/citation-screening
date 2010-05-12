@@ -192,7 +192,7 @@ class CoFeatureLearner(SimpleLearner):
             text = self.texts[x_id]
             return len(text.split(" "))
             
-        def feature_vote(self, x_id, include_direction=True):
+        def feature_vote(self, x_id, include_direction=True, scaled=True):
             # returns vote, odds ratio
 
             # note, if a token is part of a negative phrase (e.g., 'beam' in
@@ -210,7 +210,7 @@ class CoFeatureLearner(SimpleLearner):
                 # psuedo counts
                 neg_score+=1
                 pos_score+=1
-
+                total_terms_found = len(neg_terms_found) + len(pos_terms_found)
                 odds_ratio = 0
                 if pos_score >= neg_score:
                     odds_ratio = float(pos_score)/float(neg_score)
@@ -221,9 +221,14 @@ class CoFeatureLearner(SimpleLearner):
                 if not include_direction:
                     if neg_score==1 and pos_score == 1:
                         # no terms
-                        return None
+                        #return None
+                        return 0
                     odds_ratio = float(pos_score)/float(neg_score)
-                    self.feature_votes[x_id] = abs(math.log(odds_ratio))
+                    if not scaled:
+                        self.feature_votes[x_id] = abs(math.log(odds_ratio))
+                    else:
+                        # scale by the feature count
+                        self.feature_votes[x_id] =total_terms_found *abs(math.log(odds_ratio))
                               
 
             return self.feature_votes[x_id]
