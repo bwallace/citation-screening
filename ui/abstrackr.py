@@ -23,6 +23,7 @@ import re
 
 import setuptools
 import abstrackr_ui
+import term_label_editor
 
 current_index_path = "current_ref_index"
 current_lbl_d_path = "lbl_d"
@@ -63,7 +64,7 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
             self.current_lbl_d = eval(open(current_lbl_d_path, 'r').readline())
 
         # @TODO temporarily hardcoding this; obviously needs to change
-        self.reviewer_name = "Chris"
+        self.reviewer_name = "James"
 
         if db_path is not None:
             self.db_path = db_path
@@ -100,7 +101,14 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
                                        lambda: self.neg_annotation(1))
         QObject.connect(self.neg_term_btn2, SIGNAL("pressed()"),
                                        lambda: self.neg_annotation(2))
+        QObject.connect(self.action_edit_terms, SIGNAL("triggered()"),\
+                                       self.edit_labeled_terms)
+                        
 
+    def edit_labeled_terms(self):
+        editor_window =  term_label_editor.TermLabelEditor(parent=self)
+        editor_window.show()
+        
     def pos_annotation(self, degree):
         session = create_session()
         labeled_feature = self.build_annotation()

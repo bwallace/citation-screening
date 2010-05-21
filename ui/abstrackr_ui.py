@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'abstrackr.ui'
 #
-# Created: Thu Mar 18 15:12:02 2010
-#      by: PyQt4 UI code generator 4.4.3
+# Created: Fri May 21 17:08:31 2010
+#      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -51,6 +51,8 @@ class Ui_abstrackr_window(object):
         self.groupBox.setMinimumSize(QtCore.QSize(0, 90))
         self.groupBox.setMaximumSize(QtCore.QSize(16777215, 80))
         self.groupBox.setAutoFillBackground(False)
+        self.groupBox.setStyleSheet("None")
+        self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
         self.gridLayout_2 = QtGui.QGridLayout(self.groupBox)
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -60,6 +62,7 @@ class Ui_abstrackr_window(object):
         font.setPointSize(9)
         self.last_study_button.setFont(font)
         self.last_study_button.setAutoFillBackground(False)
+        self.last_study_button.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/buttons/arrow_left_green_48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.last_study_button.setIcon(icon1)
@@ -73,6 +76,7 @@ class Ui_abstrackr_window(object):
         font = QtGui.QFont()
         font.setPointSize(9)
         self.accept_button.setFont(font)
+        self.accept_button.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/buttons/accepted_48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.accept_button.setIcon(icon2)
@@ -85,6 +89,7 @@ class Ui_abstrackr_window(object):
         font = QtGui.QFont()
         font.setPointSize(9)
         self.reject_button.setFont(font)
+        self.reject_button.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(":/buttons/cancel_48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.reject_button.setIcon(icon3)
@@ -101,6 +106,7 @@ class Ui_abstrackr_window(object):
         font.setPointSize(9)
         self.next_study_button.setFont(font)
         self.next_study_button.setAutoFillBackground(False)
+        self.next_study_button.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap(":/buttons/arrow_right_green_48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.next_study_button.setIcon(icon4)
@@ -138,6 +144,7 @@ class Ui_abstrackr_window(object):
         font = QtGui.QFont()
         font.setPointSize(9)
         self.refman_id_lbl.setFont(font)
+        self.refman_id_lbl.setText("")
         self.refman_id_lbl.setObjectName("refman_id_lbl")
         self.gridLayout_2.addWidget(self.refman_id_lbl, 1, 8, 1, 1)
         spacerItem2 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
@@ -150,6 +157,7 @@ class Ui_abstrackr_window(object):
         self.pos_term_btn1.setEnabled(False)
         self.pos_term_btn1.setMinimumSize(QtCore.QSize(60, 60))
         self.pos_term_btn1.setMaximumSize(QtCore.QSize(60, 60))
+        self.pos_term_btn1.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap(":/buttons/thumbs_up_48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pos_term_btn1.setIcon(icon5)
@@ -162,6 +170,7 @@ class Ui_abstrackr_window(object):
         self.neg_term_btn1.setEnabled(False)
         self.neg_term_btn1.setMinimumSize(QtCore.QSize(60, 60))
         self.neg_term_btn1.setMaximumSize(QtCore.QSize(60, 60))
+        self.neg_term_btn1.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap(":/buttons/thumbs_down_48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.neg_term_btn1.setIcon(icon6)
@@ -172,6 +181,7 @@ class Ui_abstrackr_window(object):
         self.neg_term_btn2.setEnabled(False)
         self.neg_term_btn2.setMinimumSize(QtCore.QSize(60, 60))
         self.neg_term_btn2.setMaximumSize(QtCore.QSize(60, 60))
+        self.neg_term_btn2.setText("")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap(":/buttons/two_thumbs_down.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.neg_term_btn2.setIcon(icon7)
@@ -183,6 +193,7 @@ class Ui_abstrackr_window(object):
         self.pos_term_btn2.setMinimumSize(QtCore.QSize(60, 60))
         self.pos_term_btn2.setMaximumSize(QtCore.QSize(60, 60))
         self.pos_term_btn2.setBaseSize(QtCore.QSize(0, 0))
+        self.pos_term_btn2.setText("")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap(":/buttons/two_thumbs_up.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pos_term_btn2.setIcon(icon8)
@@ -193,7 +204,7 @@ class Ui_abstrackr_window(object):
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
         abstrackr_window.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(abstrackr_window)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1050, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1050, 20))
         self.menubar.setObjectName("menubar")
         self.menuData = QtGui.QMenu(self.menubar)
         self.menuData.setObjectName("menuData")
@@ -201,9 +212,9 @@ class Ui_abstrackr_window(object):
         self.statusbar = QtGui.QStatusBar(abstrackr_window)
         self.statusbar.setObjectName("statusbar")
         abstrackr_window.setStatusBar(self.statusbar)
-        self.actionAnnotations = QtGui.QAction(abstrackr_window)
-        self.actionAnnotations.setObjectName("actionAnnotations")
-        self.menuData.addAction(self.actionAnnotations)
+        self.action_edit_terms = QtGui.QAction(abstrackr_window)
+        self.action_edit_terms.setObjectName("action_edit_terms")
+        self.menuData.addAction(self.action_edit_terms)
         self.menubar.addAction(self.menuData.menuAction())
 
         self.retranslateUi(abstrackr_window)
@@ -216,6 +227,6 @@ class Ui_abstrackr_window(object):
         self.lbl_lbl.setText(QtGui.QApplication.translate("abstrackr_window", "?", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("abstrackr_window", "RefMan ID:", None, QtGui.QApplication.UnicodeUTF8))
         self.menuData.setTitle(QtGui.QApplication.translate("abstrackr_window", "Data", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionAnnotations.setText(QtGui.QApplication.translate("abstrackr_window", "annotations ...", None, QtGui.QApplication.UnicodeUTF8))
+        self.action_edit_terms.setText(QtGui.QApplication.translate("abstrackr_window", "annotations ...", None, QtGui.QApplication.UnicodeUTF8))
 
 import icons_rc
