@@ -106,7 +106,9 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
                         
 
     def edit_labeled_terms(self):
-        editor_window =  term_label_editor.TermLabelEditor(parent=self)
+        session = create_session()
+        annotations = self._get_annotations(session)            
+        editor_window =  term_label_editor.TermLabelEditor(annotations, session, parent=self)
         editor_window.show()
         
     def pos_annotation(self, degree):
@@ -218,12 +220,12 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
         fout.close()
 
     def redisplay_current_citation(self):
-        # we *could* separate out the styling elements (h1, etc.) but this would
-        # be overkill as it's minimal
         # we don't always have an abstract
         abstract = self.current_citation["abstract"]
         if abstract is None:
             abstract = "(no abstract for this citation.)"
+        # we *could* separate out the styling elements (h1, etc.) but this would
+        # be overkill as it's minimal.
         display_str = ["<h1>%s</h1>" % self.mark_up(self.current_citation["title"])]
         display_str.append(self.current_citation["authors"])
         display_str.append("<b>in: %s</b>" % self.current_citation["journal"])
@@ -234,17 +236,13 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
         # this higlights the labeled terms.
         # probably shouldn't query every time; but, eh.
         # premature optimization is evil and that jazz.
-        #pos_terms = ["particle", "proton", "neon ions"]
-        #neg_terms = ["radiation therapy", "a"]
-        #query = self.annotations.select(self.annotations.c.refman_id == self.current_refman_id)
         pos_terms = self.annotations.select(self.annotations.c.label > 0).execute().fetchall()
         pos_terms_d = dict(zip([p_t.text for p_t in pos_terms],\
                                [p_t.label for p_t in pos_terms]))
-        print pos_terms_d
+ 
         neg_terms = self.annotations.select(self.annotations.c.label < 0).execute().fetchall()
         neg_terms_d = dict(zip([n_t.text for n_t in neg_terms],\
                                [n_t.label for n_t in neg_terms]))
-        print neg_terms_d
         neg_terms = self.annotations.select(self.annotations.c.label > 0).execute().fetchall()
         marked_up_text = self.mark_terms(text, pos_terms_d.keys())
         marked_up_text = self.mark_terms(marked_up_text, neg_terms_d.keys(), color="red")
@@ -288,6 +286,9 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
             Labeling.study_id == self.current_refman_id, Labeling.reviewer == self.reviewer_name))\
             .first()
 
+    def _get_annotations(self, session):
+        return session.query(Annotation).all()
+        
 if __name__ == "__main__":
 
     print "abstrackr; version .0002"
