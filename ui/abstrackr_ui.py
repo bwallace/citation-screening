@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'abstrackr.ui'
 #
-# Created: Fri May 21 17:08:31 2010
+# Created: Thu May 27 13:26:28 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -82,7 +82,7 @@ class Ui_abstrackr_window(object):
         self.accept_button.setIcon(icon2)
         self.accept_button.setIconSize(QtCore.QSize(64, 64))
         self.accept_button.setObjectName("accept_button")
-        self.gridLayout_2.addWidget(self.accept_button, 0, 18, 4, 1)
+        self.gridLayout_2.addWidget(self.accept_button, 0, 19, 4, 1)
         self.reject_button = QtGui.QPushButton(self.groupBox)
         self.reject_button.setMinimumSize(QtCore.QSize(60, 60))
         self.reject_button.setMaximumSize(QtCore.QSize(60, 60))
@@ -95,7 +95,7 @@ class Ui_abstrackr_window(object):
         self.reject_button.setIcon(icon3)
         self.reject_button.setIconSize(QtCore.QSize(64, 64))
         self.reject_button.setObjectName("reject_button")
-        self.gridLayout_2.addWidget(self.reject_button, 0, 19, 4, 1)
+        self.gridLayout_2.addWidget(self.reject_button, 0, 20, 4, 1)
         spacerItem = QtGui.QSpacerItem(80, 20, QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Minimum)
         self.gridLayout_2.addItem(spacerItem, 0, 5, 1, 1)
         spacerItem1 = QtGui.QSpacerItem(80, 20, QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Minimum)
@@ -200,6 +200,18 @@ class Ui_abstrackr_window(object):
         self.pos_term_btn2.setIconSize(QtCore.QSize(60, 60))
         self.pos_term_btn2.setObjectName("pos_term_btn2")
         self.gridLayout_2.addWidget(self.pos_term_btn2, 0, 1, 1, 1)
+        self.maybe_button = QtGui.QPushButton(self.groupBox)
+        self.maybe_button.setMinimumSize(QtCore.QSize(60, 60))
+        self.maybe_button.setMaximumSize(QtCore.QSize(60, 60))
+        font = QtGui.QFont()
+        font.setFamily("Small Fonts")
+        font.setPointSize(42)
+        font.setWeight(75)
+        font.setItalic(False)
+        font.setBold(True)
+        self.maybe_button.setFont(font)
+        self.maybe_button.setObjectName("maybe_button")
+        self.gridLayout_2.addWidget(self.maybe_button, 0, 18, 4, 1)
         self.verticalLayout.addWidget(self.groupBox)
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
         abstrackr_window.setCentralWidget(self.centralwidget)
@@ -226,6 +238,7 @@ class Ui_abstrackr_window(object):
         self.labellabel.setText(QtGui.QApplication.translate("abstrackr_window", "Label:", None, QtGui.QApplication.UnicodeUTF8))
         self.lbl_lbl.setText(QtGui.QApplication.translate("abstrackr_window", "?", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("abstrackr_window", "RefMan ID:", None, QtGui.QApplication.UnicodeUTF8))
+        self.maybe_button.setText(QtGui.QApplication.translate("abstrackr_window", "?", None, QtGui.QApplication.UnicodeUTF8))
         self.menuData.setTitle(QtGui.QApplication.translate("abstrackr_window", "Data", None, QtGui.QApplication.UnicodeUTF8))
         self.action_edit_terms.setText(QtGui.QApplication.translate("abstrackr_window", "annotations ...", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -124,7 +124,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="18" rowspan="4">
+         <item row="0" column="19" rowspan="4">
           <widget class="QPushButton" name="accept_button">
            <property name="minimumSize">
             <size>
@@ -158,7 +158,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="19" rowspan="4">
+         <item row="0" column="20" rowspan="4">
           <widget class="QPushButton" name="reject_button">
            <property name="minimumSize">
             <size>
@@ -493,6 +493,34 @@
              <width>60</width>
              <height>60</height>
             </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="18" rowspan="4">
+          <widget class="QPushButton" name="maybe_button">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Small Fonts</family>
+             <pointsize>42</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>?</string>
            </property>
           </widget>
          </item>

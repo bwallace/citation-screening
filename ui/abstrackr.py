@@ -54,7 +54,7 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
         self.setupUi(self)
 
         # @TODO this is lame; we look for a file that tells
-        # us the current refman id -- need to generalize in the future
+        # us the current refman / pubmed id -- need to generalize in the future
         self.current_refman_index = 0
         if os.path.isfile(current_index_path):
             self.current_refman_index = eval(open(current_index_path, 'r').readline())
@@ -89,6 +89,7 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
         QObject.connect(self.last_study_button, SIGNAL("pressed()"), self.previous_study)
         QObject.connect(self.accept_button, SIGNAL("pressed()"), self.accept_study)
         QObject.connect(self.reject_button, SIGNAL("pressed()"), self.reject_study)
+        QObject.connect(self.maybe_button, SIGNAL("pressed()"), self.maybe_study)
         QObject.connect(self.jump_button, SIGNAL("pressed()"), self.jump_to_study)
         QObject.connect(self.jump_txt, SIGNAL("returnPressed()"),self.jump_to_study)
         QObject.connect(self.abstract_text, SIGNAL("selectionChanged()"),
@@ -101,6 +102,7 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
                                        lambda: self.neg_annotation(1))
         QObject.connect(self.neg_term_btn2, SIGNAL("pressed()"),
                                        lambda: self.neg_annotation(2))
+                          
         QObject.connect(self.action_edit_terms, SIGNAL("triggered()"),\
                                        self.edit_labeled_terms)
                         
@@ -126,7 +128,7 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
         session.save(labeled_feature)
         session.flush()
         self.redisplay_current_citation()
-
+        
     def build_annotation(self):
         labeled_text = self.abstract_text.textCursor().selectedText()
         labeled_feature = Annotation()
@@ -137,16 +139,25 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
         return labeled_feature
 
     def accept_study(self):
-        print self.abstract_text.textCursor().selectedText()
         session = create_session()
         labeling = self._get_current_labeling(session)
         self.update_labeling_time(labeling)
         labeling.label = 1
-        # @TODO remove this
         self.current_lbl_d[self.current_refman_id] = 1
         session.flush()
         self.next_study()
 
+    def maybe_study(self):
+        session = create_session()
+        labeling = self._get_current_labeling(session)
+        self.update_labeling_time(labeling)
+        ##
+        # we encode 'maybe' as 0.
+        labeling.label = 0
+        self.current_lbl_d[self.current_refman_id] = 0
+        session.flush()
+        self.next_study()
+        
     def reject_study(self):
         session = create_session()
         labeling = self._get_current_labeling(session)
@@ -200,9 +211,14 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
         session = create_session()
         cur_labeling = self._get_current_labeling(session)
         if cur_labeling.label is not None:
-            self.lbl_lbl.setText(str(int(cur_labeling.label)))
+            cur_lbl = str(int(cur_labeling.label))
+
+            if cur_lbl == "0":
+                self.lbl_lbl.setText("?")
+            else:
+                self.lbl_lbl.setText(cur_lbl)
         else:
-            self.lbl_lbl.setText("?")
+            self.lbl_lbl.setText("None")
 
         self.redisplay_current_citation()
 
