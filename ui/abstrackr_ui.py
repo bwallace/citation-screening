@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'abstrackr.ui'
 #
-# Created: Thu May 27 13:26:28 2010
+# Created: Thu May 27 14:21:25 2010
 #      by: PyQt4 UI code generator 4.7.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -226,7 +226,10 @@ class Ui_abstrackr_window(object):
         abstrackr_window.setStatusBar(self.statusbar)
         self.action_edit_terms = QtGui.QAction(abstrackr_window)
         self.action_edit_terms.setObjectName("action_edit_terms")
+        self.action_progress = QtGui.QAction(abstrackr_window)
+        self.action_progress.setObjectName("action_progress")
         self.menuData.addAction(self.action_edit_terms)
+        self.menuData.addAction(self.action_progress)
         self.menubar.addAction(self.menuData.menuAction())
 
         self.retranslateUi(abstrackr_window)
@@ -241,5 +244,6 @@ class Ui_abstrackr_window(object):
         self.maybe_button.setText(QtGui.QApplication.translate("abstrackr_window", "?", None, QtGui.QApplication.UnicodeUTF8))
         self.menuData.setTitle(QtGui.QApplication.translate("abstrackr_window", "Data", None, QtGui.QApplication.UnicodeUTF8))
         self.action_edit_terms.setText(QtGui.QApplication.translate("abstrackr_window", "annotations ...", None, QtGui.QApplication.UnicodeUTF8))
+        self.action_progress.setText(QtGui.QApplication.translate("abstrackr_window", "progress...", None, QtGui.QApplication.UnicodeUTF8))
 
 import icons_rc

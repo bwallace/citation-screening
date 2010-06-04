@@ -522,14 +522,15 @@ def rank_uncertainties(data_paths):
     
     cofl_learner = cfal_learner.CoFeatureLearner(pos_path, neg_path, w_index_path, abstracts_path, titles_path, 
                                                                             unlabeled_datasets=[d.copy() for d in datasets], undersample_before_eval=True)
-    #learners[0].label_all_data()
-    #learners[0].rebuild_models(for_eval=False, do_grid_search=True, beta=10)
-    #ids_to_dists = {}
-    #instances =  learners[0].labeled_datasets[0].instances
-    #for x_id in instances.keys():
-    #    ids_to_dists[x_id] = learners[0].models[0].distance_to_hyperplane(instances[x_id].point)
+    learners[0].label_all_data()
+    learners[0].rebuild_models(for_eval=False, do_grid_search=True, beta=2)
+    ids_to_dists = {}
+    instances =  learners[0].labeled_datasets[0].instances
+    for x_id in instances.keys():
+        ids_to_dists[x_id] = learners[0].models[0].distance_to_hyperplane(instances[x_id].point)
 
-    #sorted_points = sorted(ids_to_dists.items(), key=itemgetter(1))
+    sorted_points = sorted(ids_to_dists.items(), key=itemgetter(1))
+    pdb.set_trace()
     #learners[0].cotest()
     ids_to_scores = {}
     for x_id in cofl_learner.unlabeled_datasets[0].instances.keys():

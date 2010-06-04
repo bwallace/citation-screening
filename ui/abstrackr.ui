@@ -545,6 +545,7 @@
      <string>Data</string>
     </property>
     <addaction name="action_edit_terms"/>
+    <addaction name="action_progress"/>
    </widget>
    <addaction name="menuData"/>
   </widget>
@@ -552,6 +553,11 @@
   <action name="action_edit_terms">
    <property name="text">
     <string>annotations ...</string>
+   </property>
+  </action>
+  <action name="action_progress">
+   <property name="text">
+    <string>progress...</string>
    </property>
   </action>
  </widget>

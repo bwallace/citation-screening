@@ -24,6 +24,7 @@ import re
 import setuptools
 import abstrackr_ui
 import term_label_editor
+import progress
 
 current_index_path = "current_ref_index"
 current_lbl_d_path = "lbl_d"
@@ -59,13 +60,18 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
         if os.path.isfile(current_index_path):
             self.current_refman_index = eval(open(current_index_path, 'r').readline())
 
+
+        # @TODO this is (also) lame; same as above, but for
+        # the reviewer
+        reviewer_name_path = "whoami.txt"
+        self.reviewer_name = open(reviewer_name_path, 'r').readline()
+        
         self.current_lbl_d = {}
         if os.path.isfile(current_lbl_d_path):
             self.current_lbl_d = eval(open(current_lbl_d_path, 'r').readline())
 
-        # @TODO temporarily hardcoding this; obviously needs to change
-        self.reviewer_name = "James"
 
+    
         if db_path is not None:
             self.db_path = db_path
         elif len(sys.argv)<=1:
@@ -105,13 +111,20 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
                           
         QObject.connect(self.action_edit_terms, SIGNAL("triggered()"),\
                                        self.edit_labeled_terms)
-                        
+        QObject.connect(self.action_progress, SIGNAL("triggered()"),\
+                                       self.view_progress)       
 
     def edit_labeled_terms(self):
         session = create_session()
         annotations = self._get_annotations(session)            
         editor_window =  term_label_editor.TermLabelEditor(annotations, session, parent=self)
         editor_window.show()
+        
+    def view_progress(self):
+        session = create_session()
+        labels = self._get_labels(session)
+        progress_window = progress.Progress(labels, parent=self)
+        progress_window.show()
         
     def pos_annotation(self, degree):
         session = create_session()
@@ -302,6 +315,9 @@ class AbstrackrForm(QtGui.QMainWindow, abstrackr_ui.Ui_abstrackr_window):
             Labeling.study_id == self.current_refman_id, Labeling.reviewer == self.reviewer_name))\
             .first()
 
+    def _get_labels(self, session):
+        return session.query(Labeling).filter(Labeling.reviewer == self.reviewer_name).all()
+        
     def _get_annotations(self, session):
         return session.query(Annotation).all()
         

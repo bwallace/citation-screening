@@ -18,7 +18,12 @@ class TermLabelEditor(QDialog, ui_term_label_editor.Ui_term_label_editor):
                                             self.term_selected)
             QObject.connect(self.remove_term_button, SIGNAL("pressed()"),
                                             self.remove_selected_term)
-                                            
+            QObject.connect(self.ok_button, SIGNAL("pressed()"),
+                                            self.ok)
+                      
+        def ok(self):
+            self.close()
+        
         def populate_term_list(self):
             self.term_list.clear()
             for annotation in self.annotations:
